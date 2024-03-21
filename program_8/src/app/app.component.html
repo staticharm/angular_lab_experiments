@@ -1,0 +1,30 @@
+<div class="container-box">
+  <h1 class="">
+    8. DevelopAngularJS program to create a login form, with validation for the
+    username and password fields.
+  </h1>
+
+  <form action="" class="form-section" [formGroup]="form" (ngSubmit)="submit()">
+    <label for="user_name" class="label-section"> Name</label>
+    <input
+      type="text"
+      class="input-section"
+      formControlName="user_name"
+      placeholder="Enter  Name"
+    />
+
+    <label for="user_name" class="label-section">Password</label>
+    <input
+      type="password"
+      class="input-section"
+      formControlName="password"
+      placeholder="Enter Last Name"
+    />
+
+    <div class="aleart-section" *ngIf="alert">
+      <p>{{ error }}</p>
+    </div>
+
+    <button class="btn-section" type="submit">Submit</button>
+  </form>
+</div>

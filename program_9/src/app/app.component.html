@@ -1,0 +1,29 @@
+<div class="container-box">
+  <h1 class="">
+    Create an AngularJS application that displays a list of employees and their
+    salaries. Allow users to search for employees by name and salary. Note:
+    Employee details may be included in the program.
+  </h1>
+
+  <div class="search">
+    <label class="lable" for="">Search</label>
+    <input type="text" [(ngModel)]="search" class="input-feilds" />
+  </div>
+
+  <table class="">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Salary</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of employee_list | filter : search; index as i">
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.salary }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
