@@ -1,0 +1,13 @@
+<div class="container-box">
+  <h1>
+    Create an AngularJS application that displays the date by using date filter
+    parameters
+  </h1>
+
+  <div class="date-section">
+    <p>{{ today }}</p>
+    <p>{{ today | date }}</p>
+    <p>{{ today | date : "dd mm yyyy hh:mm:ss " }}</p>
+    <p>{{ today | date : "dd mm yyyy h:mm:ss a" }}</p>
+  </div>
+</div>

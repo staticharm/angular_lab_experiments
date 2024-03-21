@@ -1,0 +1,56 @@
+<div class="container-box">
+  <h1 class="">
+    Angular application that displays a list of shopping items. Allow users to
+    add and remove items from the list using directives and controllers
+  </h1>
+
+  <div class="items-section">
+    <div class="">
+      <label for="">Item Name :</label>
+      <input type="text" [(ngModel)]="item_to_add.name" class="input-feilds" />
+    </div>
+    <div class="">
+      <label for="">Item Quantity :</label>
+      <input
+        type="number"
+        [(ngModel)]="item_to_add.quantity"
+        class="input-feilds"
+      />
+    </div>
+    <div class="">
+      <label for="">Item Price :</label>
+      <input
+        type="price"
+        [(ngModel)]="item_to_add.price"
+        class="input-feilds"
+      />
+    </div>
+
+    <div class="">
+      <button class="button" (click)="add()">Add</button>
+    </div>
+  </div>
+
+  <table class="">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of shopping_list; index as i">
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.price }}</td>
+        <td>
+          <button class="button" (click)="remove(i)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
