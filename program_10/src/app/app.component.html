@@ -1,0 +1,105 @@
+<div class="container-box">
+  <h1>
+    Create AngularJS application that allows users to maintain a collection of
+    items. The application should display the current total number of items, and
+    this count should automatically update as items are added or removed. Users
+    should be able to add items to the collection and remove them as needed.
+    Note: The default values for items may be included in the program.
+  </h1>
+
+  <div class="count-section">
+    <p class="counter">Total count: {{ shopping_list.length }}</p>
+  </div>
+
+  <div class="items-section">
+    <div class="">
+      <label for="">Item Name :</label>
+      <input type="text" [(ngModel)]="item_to_add.name" class="input-feilds" />
+    </div>
+    <div class="">
+      <label for="">Item Quantity :</label>
+      <input
+        type="number"
+        [(ngModel)]="item_to_add.quantity"
+        class="input-feilds"
+      />
+    </div>
+    <div class="">
+      <label for="">Item Price :</label>
+      <input
+        type="price"
+        [(ngModel)]="item_to_add.price"
+        class="input-feilds"
+      />
+    </div>
+
+    <div class="">
+      <button class="button" (click)="add()">Add</button>
+    </div>
+  </div>
+
+  <table class="">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of shopping_list; index as i">
+        <td>{{ i + 1 }}</td>
+        <td>
+          <span *ngIf="!is_edit">
+            {{ item.name }}
+          </span>
+          <span *ngIf="is_edit">
+            <input
+              class="input-section"
+              type="text"
+              [(ngModel)]="item.name"
+              class="input-feilds"
+            />
+          </span>
+        </td>
+        <td>
+          <span *ngIf="!is_edit">
+            {{ item.quantity }}
+          </span>
+          <span *ngIf="is_edit">
+            <input
+              class="input-section"
+              type="text"
+              [(ngModel)]="item.quantity"
+              class="input-feilds"
+            />
+          </span>
+        </td>
+        <td>
+          <span *ngIf="!is_edit">
+            {{ item.price }}
+          </span>
+          <span *ngIf="is_edit">
+            <input
+              class="input-section"
+              type="text"
+              [(ngModel)]="item.price"
+              class="input-feilds"
+            />
+          </span>
+        </td>
+        <td>
+          <button class="button" (click)="remove(i)">Delete</button>
+          <button class="button" *ngIf="!is_edit" (click)="edit(i)">
+            Edit
+          </button>
+          <button class="button" *ngIf="is_edit" (click)="is_edit = false">
+            Save
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
